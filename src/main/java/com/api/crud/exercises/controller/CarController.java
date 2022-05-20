@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/program")
 public class CarController {
 
     @Autowired
@@ -26,13 +27,19 @@ public class CarController {
         return carService.findOneCar(id);
     }
 
-    @PostMapping ("/cars")
+    @PostMapping ("/save/cars")
     public Car saveCar(@RequestBody Car car) throws CarException {
         return carService.saveCar(car);
     }
 
-    @DeleteMapping("/car/{id}")
+    @DeleteMapping("/delete/car/{id}")
     public void deleteCar(@PathVariable Long id) throws CarException {
         carService.deleteCar(id);
     }
+
+    @PutMapping("/update/car/{id}")
+    public void updateCar(@PathVariable int id, @RequestBody Car car) throws CarException {
+        carService.updateCar(id, car);
+    }
+
 }

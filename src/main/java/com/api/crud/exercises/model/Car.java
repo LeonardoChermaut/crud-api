@@ -1,14 +1,12 @@
 package com.api.crud.exercises.model;
 
-
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 
 @Entity
-@AllArgsConstructor
+
 @NoArgsConstructor
 public class Car {
 
@@ -20,6 +18,13 @@ public class Car {
     private String brand;
     private String model;
     private int year;
+
+    public Car(long id, String brand, String model, int year) {
+        this.id = id;
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+    }
 
     public long getId() {
         return id;
